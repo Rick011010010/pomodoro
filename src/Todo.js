@@ -25,16 +25,24 @@ function Todo({ todosHandler, inputTextHandler, text, setInputText, inputText, t
 
     const [editText, setEditText] = useState(todo.text)
     const [showInput, setShowInput] = useState(true)
+    
 
     const updateHandler = () => {
         setShowInput(!showInput)
-        setEditText()
+        
         
     }
 
     const inputHandler =  (e) => {
-        console.log(e.target.value)   
+        console.log(e.target.value)
+        setEditText(e.target.value)
+        text = e.target.value
+        
+      
+           
     }
+
+    
 
     
 
@@ -45,7 +53,7 @@ function Todo({ todosHandler, inputTextHandler, text, setInputText, inputText, t
         <div>
 
 
-            <div className='bg-gradient-to-r from-purple-500 to-pink-500 my-1 rounded-xl flex justify-between px-5 py-2 md:py-2 border-2 border-slate-700 '>
+            <div className='bg-gradient-to-r from-purple-500  my-1 rounded-xl flex justify-between px-5 py-2 md:py-2 border-2 border-slate-700 '>
                 <div>
                     <li className='flex '><input onChange={inputHandler} value={editText} maxlength="30" type="text" className={!showInput ?'flex bg-gradient-to-r from-purple-500 to-pink-500 ' : 'hidden' } />{showInput&&text}</li>
                 </div >
